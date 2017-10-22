@@ -1,0 +1,27 @@
+---
+version: '3'
+services:
+  #  Development Database
+  db:
+    image: postgres:10
+    restart: always
+    volumes:
+      - pg-data:/data/postgres
+      - /var/run/postgresql:/var/run/postgresql 
+    environment:
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=test
+    ports:
+      - "5432:5432"
+  #  Development serivces
+  perf:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - ./:/usr/src/app:Z
+volumes:
+  pg-data:
