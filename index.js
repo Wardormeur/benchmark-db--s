@@ -1,4 +1,5 @@
 const appLink = require('./lib/appLink.js');
+const consolidatedAppLink = require('./lib/consolidatedAppLink.js');
 const naturalJoin = require('./lib/naturalJoin.js');
 const uuid = require('uuid/v4');
 const pg = require('pg-promise')();
@@ -6,6 +7,7 @@ const pg = require('pg-promise')();
 setTimeout(() => {
   resetDB()
   .then(timer.bind(this, appLink))
+  .then(timer.bind(this, consolidatedAppLink))
   .then(timer.bind(this, naturalJoin))
   .then(() => {
     console.log('finished');
@@ -53,5 +55,6 @@ function resetDB() {
       return Promise.all(inserts);
     });
   })
+  .then(() => db.any('REINDEX DATABASE test'))
   .then(() => console.log('reset finished'));
 }
