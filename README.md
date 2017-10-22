@@ -4,7 +4,7 @@ So far :
 
 [x] IN query with separated queries
 
-[] IN query with consolidated data
+[x] IN query with consolidated data
 
 [x] reference JOIN
 
@@ -19,6 +19,6 @@ So far :
 
 To look into : 
 
-pre-indexing to simulate real prod env (REINDEX)
+~pre-indexing to simulate real prod env (REINDEX)~
 
 Save results into proper format
