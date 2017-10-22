@@ -18,5 +18,7 @@ So far :
 [] separate caching for read (memcache, redis) with transformed data
 
 To look into : 
-pre-indexing to simulate real prod env
+
+pre-indexing to simulate real prod env (REINDEX)
+
 Save results into proper format
